@@ -11,6 +11,7 @@ import pl.coderslab.repository.UserRepository;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 @Service
 public class OfferService {
@@ -42,7 +43,13 @@ public class OfferService {
         offerRepository.save(offer);
 
 
-
     }
+    public List<Offer> findAllByUserId() {
+        AppUser appUser = userRepository.findByEmail(getUserFromContext().getEmail());
+
+
+        return offerRepository.findAllByUserId(appUser.getId());
+    }
+
 
 }

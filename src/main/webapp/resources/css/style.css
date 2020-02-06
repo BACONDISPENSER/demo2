@@ -27,3 +27,35 @@ button.bg-primary:hover,
 button.bg-primary:focus {
     background-color: #601e96 !important;
 }
+
+.offer-div {
+    width: 100%;
+    height: 100px;
+    display: inline-block;
+
+}
+.offer-inside-div {
+    width: 18%;
+    height:90px;
+    display: inline-block;
+    text-align: left;
+    vertical-align: top;
+
+}
+.offer-inside-div-photo {
+    width: 13%;
+    height:90px;
+    display: inline-block;
+    text-align: left;
+    vertical-align: top;
+
+}
+
+.offer-inside-longer-div {
+    width: 65%;
+    height: 90px;
+    display: inline-block;
+    text-align: left;
+    vertical-align: top;
+
+}

@@ -13,6 +13,7 @@ import pl.coderslab.entity.AppUser;
 import pl.coderslab.entity.CurrentUser;
 import pl.coderslab.entity.Offer;
 import pl.coderslab.repository.OfferRepository;
+import pl.coderslab.services.OfferService;
 import pl.coderslab.services.UserService;
 import pl.coderslab.validators.EditPhotoValidationGroupName;
 import pl.coderslab.validators.UserEditValidationGroup;
@@ -25,10 +26,12 @@ public class ProfileController {
 
     private final UserService userService;
     private final OfferRepository offerRepository;
+    private final OfferService offerService;
 
-    public ProfileController(UserService userService, OfferRepository offerRepository) {
+    public ProfileController(UserService userService, OfferRepository offerRepository, OfferService offerService) {
         this.userService = userService;
         this.offerRepository = offerRepository;
+        this.offerService = offerService;
     }
 
     @GetMapping("/edit")
@@ -38,6 +41,7 @@ public class ProfileController {
         model.addAttribute("appUserPassword", new AppUser());
         return "profile/edituser";
     }
+
     @PostMapping("/edit/changeUserData")
     public String editUserDataInDatabase(Model model, @Validated({UserEditValidationGroup.class}) AppUser appUser,
                                          BindingResult result) {
@@ -47,8 +51,9 @@ public class ProfileController {
             return "profile/edituser";
         }
         userService.userUpdate(appUser);
-        return "redirect:/profile/profile";
+        return "redirect:/profile";
     }
+
     @PostMapping("/edit/changePhoto")
     public String editUserPhotoInDatabase(@AuthenticationPrincipal CurrentUser customUser, Model model,
                                           @ModelAttribute(value = "appUserPhoto")
@@ -60,18 +65,15 @@ public class ProfileController {
             return "profile/edituser";
         }
         userService.updateUserPhoto(appUser);
-        return "redirect:/profile/profile";
+        return "redirect:/profile";
     }
-
-
 
 
     @ModelAttribute("userOffers")
-    public List<Offer> offerList(@AuthenticationPrincipal CurrentUser customUser){
+    public List<Offer> offerList(@AuthenticationPrincipal CurrentUser customUser) {
         AppUser userToGetIdFrom = userService.findUserByMail(customUser.getAppUser().getEmail());
         return offerRepository.findAllByUserId(userToGetIdFrom.getId());
     }
-
 
 
     @GetMapping
@@ -79,4 +81,11 @@ public class ProfileController {
         return "profile/profile";
     }
 
+    @ModelAttribute("offerQuantity")
+    public int offerQuantity(){
+     return offerService.findAllByUserId().size();
+    }
+
+
 }
+

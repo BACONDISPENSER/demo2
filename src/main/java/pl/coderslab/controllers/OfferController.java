@@ -10,22 +10,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.entity.Category;
 import pl.coderslab.entity.Offer;
 import pl.coderslab.repository.CategoryRepository;
+import pl.coderslab.repository.OfferRepository;
 import pl.coderslab.services.OfferService;
 
 import javax.validation.Valid;
-import java.net.BindException;
+
 import java.util.List;
 
 @Controller
 @RequestMapping("/offer")
 public class OfferController {
 
-    private OfferService offerService;
+    private final OfferService offerService;
+    private final OfferRepository offerRepository;
 
     private CategoryRepository categoryRepository;
 
-    public OfferController(OfferService offerService, CategoryRepository categoryRepository) {
+    public OfferController(OfferService offerService, OfferRepository offerRepository, CategoryRepository categoryRepository) {
         this.offerService = offerService;
+        this.offerRepository = offerRepository;
         this.categoryRepository = categoryRepository;
     }
 
@@ -49,5 +52,16 @@ public class OfferController {
     public List<Category> categoryList(){
         return categoryRepository.findAll();
     }
+
+    @GetMapping("/all")
+    public String displayAllOffers(){
+        return "offer/allofferslogged";
+    }
+
+    @ModelAttribute("allOffersLogged")
+    public List<Offer> allOffers(){
+        return offerRepository.AllAllOffers();
+    }
+
 
 }
