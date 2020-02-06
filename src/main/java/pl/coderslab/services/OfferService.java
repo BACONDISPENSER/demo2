@@ -51,5 +51,9 @@ public class OfferService {
         return offerRepository.findAllByUserId(appUser.getId());
     }
 
+    public List<Offer> searchOffers(String search){
+        return offerRepository.findAllByTitleContaining(search);
+    }
+
 
 }

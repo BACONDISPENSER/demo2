@@ -18,6 +18,9 @@ public interface OfferRepository extends JpaRepository<Offer, Long> {
     @Query(value = "SELECT * FROM offer ORDER BY created DESC", nativeQuery = true)
     List<Offer> AllAllOffers();
 
+    List<Offer> findAllByTitleContaining(String search);
+    List<Offer> findAllByCityContaining(String search);
+
 
 
 
