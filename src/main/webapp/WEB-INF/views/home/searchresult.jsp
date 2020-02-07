@@ -44,7 +44,7 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Wszystkie Ogłoszenia</h1><br>
+                    <h1 class="h3 mb-0 text-gray-800">Znaleziono wyników: ${searchResult.size()}</h1><br>
                     <%--<util:pagination thispage="${allTest}"></util:pagination>--%>
                     <%--<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
@@ -61,7 +61,7 @@
 
                 <!-- Content Row -->
                 <div class="row">
-                    <c:forEach items="${allTest}" var="alll">
+                    <c:forEach items="${searchResult}" var="searchR">
                         <div class="col-lg-12">
 
                             <div class="card mb-4 py-3 border-left-primary">
@@ -69,23 +69,23 @@
                                     <div class="offer-div">
                                         <div class="offer-inside-div-photo">
                                             <img src="/img/defaultuserimg.png" width="80" height="80"><br>
-                                            ${alll.created}
+                                            ${searchR.created}
                                         </div>
                                         <div class="offer-inside-div">
-                                            <h11 class="m-0 font-weight-bold text-primary">${alll.title}</h11>
+                                            <h11 class="m-0 font-weight-bold text-primary">${searchR.title}</h11>
                                             <br>
                                             <b>Lokalizacja:</b><br>
-                                                ${alll.city}
-                                            <c:if test="${not empty alll.adress}">
+                                                ${searchR.city}
+                                            <c:if test="${not empty searchR.adress}">
                                                 Szczegóły:
-                                                ${alll.adress}
+                                                ${searchR.adress}
                                             </c:if>
 
                                         </div>
                                         <div class="offer-inside-longer-div">
                                             <h11 class="m-0 font-weight-bold text-primary">Opis:</h11>
                                             <br>
-                                                ${alll.description}
+                                                ${searchR.description}
 
                                         </div>
 

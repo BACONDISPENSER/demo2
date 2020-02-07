@@ -1,6 +1,7 @@
 package pl.coderslab.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,8 +35,13 @@ public class HomeController {
     }
 
     @GetMapping("/all/notloggedoffers")
-    public String displayAllOffers(){
+    public String displayAllOffers(Model model){
+        model.addAttribute("allTest",offerRepository.AllAllOffers());
         return "home/alloffers";
+    }
+    @GetMapping("/search")
+    public String searchResult() {
+        return "home/searchresult";
     }
 
     @PostMapping("/search")
@@ -43,8 +49,9 @@ public class HomeController {
 
         request.getSession().setAttribute("searchResult", offerRepository.findAllByTitleContaining(searchOffer));
 
-        return "redirect:/";
+        return "redirect:/search";
     }
+
 
 
 }

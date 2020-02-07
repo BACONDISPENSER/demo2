@@ -27,6 +27,12 @@ public class Offer {
     private Category category;
     @ManyToOne
     private AppUser user;
+    @Transient
+    private String stringToSearch;
+
+    public String getStringToSearch() {
+        return city + " " + title;
+    }
 
     public AppUser getUser() {
         return user;

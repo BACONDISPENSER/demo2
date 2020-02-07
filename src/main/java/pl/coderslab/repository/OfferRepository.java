@@ -26,4 +26,5 @@ public interface OfferRepository extends JpaRepository<Offer, Long> {
 
 
 
+
 }

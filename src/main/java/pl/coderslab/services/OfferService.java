@@ -11,6 +11,7 @@ import pl.coderslab.repository.UserRepository;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -51,9 +52,22 @@ public class OfferService {
         return offerRepository.findAllByUserId(appUser.getId());
     }
 
-    public List<Offer> searchOffers(String search){
-        return offerRepository.findAllByTitleContaining(search);
-    }
+//    public List<Offer> searchOffers(String search){
+//        List<Offer> listToAddTest = new ArrayList<>();
+//        List<Offer> searchCityTitleTest = offerRepository.findAll();
+//        for (Offer offer : searchCityTitleTest) {
+//            if(offer.getStringToSearch().toLowerCase().contains(search.toLowerCase())){
+//                listToAddTest.add(offer);
+//            }
+//
+//        }
+//
+//
+//
+//
+//
+//        return listToAddTest;
+//    }
 
 
 }
