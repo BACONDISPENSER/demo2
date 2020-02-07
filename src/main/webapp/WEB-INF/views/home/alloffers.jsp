@@ -44,7 +44,7 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Wszystkie Ogłoszenia</h1><br>
+                    <h1 class="h3 mb-0 text-gray-800">Wszystkie Ogłoszenia: ${allTest.size()} wyników</h1><br>
                     <%--<util:pagination thispage="${allTest}"></util:pagination>--%>
                     <%--<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>

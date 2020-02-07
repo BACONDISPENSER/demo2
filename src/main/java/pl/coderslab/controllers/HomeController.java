@@ -47,7 +47,8 @@ public class HomeController {
     @PostMapping("/search")
     public String searchByTitle(HttpServletRequest request, @RequestParam(required = false) String searchOffer){
 
-        request.getSession().setAttribute("searchResult", offerRepository.findAllByTitleContaining(searchOffer));
+        request.getSession().setAttribute("searchResult", offerRepository.findAllByCityContainingIgnoreCaseOrTitleContainingIgnoreCase(searchOffer, searchOffer));
+      //  request.getSession().setAttribute("searchResult", offerRepository.findAllByTitleContainingOrCityContaining(searchOffer, searchOffer));
 
         return "redirect:/search";
     }

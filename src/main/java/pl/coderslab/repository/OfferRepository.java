@@ -21,6 +21,9 @@ public interface OfferRepository extends JpaRepository<Offer, Long> {
     List<Offer> findAllByTitleContaining(String search);
     List<Offer> findAllByCityContaining(String search);
 
+    List<Offer> findAllByCityContainingIgnoreCaseOrTitleContainingIgnoreCase(String search,String search2);
+
+//    List<Offer> findAllByTitleContainingOrCityContaining(String search, String search2);
 
 
 
