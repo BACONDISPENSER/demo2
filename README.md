@@ -36,6 +36,4 @@ Technologies Used:
 * MySql Workbench
 * Lombok
 * JSTL
-* JavaScript
 * JPQL
-* Jquery
