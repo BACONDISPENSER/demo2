@@ -9,31 +9,33 @@ This Spring Boot application is for users who want to give away old stuff that t
 To open project on intellij IDEA:
 
 
-*clone this repository
+* clone this repository
 ```
 git clone repo-url
 ```
-*open intellij
-*go to File
-*New
-*Project from existing sources
-*choose folder with cloned repo
-*open as Maven project
-*Application is ready under this link:
+* open intellij
+* go to File
+* New
+* Project from existing sources
+* choose folder with cloned repo
+* open as Maven project
+* Application is ready under this link:
 ```
 http://localhost:8080
 ```
+
 Technologies Used:
-*Spring Boot
-*Spring Security
-*Maven
-*Spring Data
-*Hibernate
-*Spring Form
-*MySql Database
-*MySql Workbench
-*Lombok
-*JSTL
-*JavaScript
-*JPQL
-*Jquery
+
+* Spring Boot
+* Spring Security
+* Maven
+* Spring Data
+* Hibernate
+* Spring Form
+* MySql Database
+* MySql Workbench
+* Lombok
+* JSTL
+* JavaScript
+* JPQL
+* Jquery
